@@ -44,10 +44,12 @@ done
 #-----
 # zsh or bash?
 
-if [ "$setup_zsh" = true ]; then
-    echo "================================================================================"
-    echo "setting up zsh"
-    echo "--------------------------------------------------------------------------------"
+echo "================================================================================"
+echo "setting up your shell"
+echo "--------------------------------------------------------------------------------"
+if [ "$setup_zsh" = true ] && [ -f /bin/zsh -o -f /usr/bin/zsh ]; then
+    echo "using zsh"
+    echo
     if [ ! -d "$HOME/.oh-my-zsh" ]; then
         echo "installing oh-my-zsh"
         sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -65,9 +67,8 @@ if [ "$setup_zsh" = true ]; then
         fi
     fi
 else
-    echo "================================================================================"
-    echo "setting up bash"
-    echo "--------------------------------------------------------------------------------"
+    echo "using bash (either you chose this option, or zsh wasn't available"
+    echo
     if [ "$SHELL" != "/bin/bash" ]; then
         echo "chsh -s /bin/bash"
         chsh -s /bin/bash
