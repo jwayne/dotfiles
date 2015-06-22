@@ -10,7 +10,8 @@
 dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 # Defaults
-use_zsh=true
+setup_zsh=true  #if false, we use bash
+setup_git=
 
 while test $# -gt 0; do
     case "$1" in
@@ -22,14 +23,19 @@ while test $# -gt 0; do
             echo "options:"
             echo "-h, --help                show brief help"
             echo "--bash OR --zsh"
+            echo "--git"
             exit 0
             ;;
         --bash)
-            use_zsh=
+            setup_zsh=
             shift
             ;;
         --zsh)
-            use_zsh=true            
+            setup_zsh=true            
+            shift
+            ;;
+        --git)
+            setup_git=true            
             shift
             ;;
     esac
@@ -38,7 +44,7 @@ done
 #-----
 # zsh or bash?
 
-if [ "$use_zsh" = true ]; then
+if [ "$setup_zsh" = true ]; then
     echo "================================================================================"
     echo "setting up zsh"
     echo "--------------------------------------------------------------------------------"
@@ -101,6 +107,19 @@ for file in $dotfiles; do
     fi
 done
 echo -e "done\n"
+
+
+#-----
+# git
+
+if [[ "$setup_git" = true ]]; then
+    echo "================================================================================"
+    echo "setting up git"
+    echo "--------------------------------------------------------------------------------"
+    git config --global user.name "Josh Chen"
+    git config --global user.email "jwcstar@gmail.com"
+    echo -e "done\n"
+fi
 
 #-----
 # manual installs
