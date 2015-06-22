@@ -51,14 +51,17 @@ if [ "$setup_zsh" = true ]; then
     if [ ! -d "$HOME/.oh-my-zsh" ]; then
         echo "installing oh-my-zsh"
         sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+        echo
     else
         echo "oh-my-zsh already installed"
+        echo
         if [ "$SHELL" != "/bin/zsh" ]; then
             echo "chsh -s /bin/zsh"
             chsh -s /bin/zsh
             set SHELL=/bin/zsh
         else
             echo "default shell is already zsh, nothing to do"
+            echo
         fi
     fi
 else
@@ -71,6 +74,7 @@ else
         set SHELL=/bin/bash
     else
         echo "default shell is already bash, nothing to do"
+        echo
     fi
 fi
 echo -e "done\n"
@@ -118,6 +122,7 @@ if [[ "$setup_git" = true ]]; then
     echo "--------------------------------------------------------------------------------"
     git config --global user.name "Josh Chen"
     git config --global user.email "jwcstar@gmail.com"
+    git config --global push.default simple
     echo -e "done\n"
 fi
 
@@ -132,7 +137,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     echo "Nothing to do"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     echo "OS: OS X"
-    echo "Install manually: ShiftIt"
+    echo "You should install these apps manually: ShiftIt"
 else
     echo "OS: unknown"
     echo "Nothing to do"
