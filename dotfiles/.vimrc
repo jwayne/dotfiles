@@ -43,3 +43,11 @@ set relativenumber
 
 " More key bindings
 "http://www.techrepublic.com/blog/linux-and-open-source/create-custom-keybindings-in-vim/
+
+" tmux will send xterm-style keys when its xterm-keys option is on
+if &term =~ '^screen'
+    execute "set <xUp>=\e[1;*A"
+    execute "set <xDown>=\e[1;*B"
+    execute "set <xRight>=\e[1;*C"
+    execute "set <xLeft>=\e[1;*D"
+endif
