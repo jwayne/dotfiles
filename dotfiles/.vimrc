@@ -29,8 +29,17 @@ function TabToggle()
 endfunction
 nmap <F3> mz:execute TabToggle()<CR>'z
 
-" hybrid line numbers
-"set relativenumber 
-"set number          
+" plugins
+filetype plugin indent on
 
+" use system clipboard, hopefully
+set clipboard=unnamedplus
+
+" make backspace work
+set backspace=2
+
+" hybrid line numbers
+set relativenumber 
+
+" More key bindings
 "http://www.techrepublic.com/blog/linux-and-open-source/create-custom-keybindings-in-vim/
