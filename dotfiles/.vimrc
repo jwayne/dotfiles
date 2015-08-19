@@ -41,6 +41,9 @@ set backspace=2
 " hybrid line numbers
 set relativenumber 
 
+" somehow search highlighting got turned off
+set hlsearch
+
 " More key bindings
 "http://www.techrepublic.com/blog/linux-and-open-source/create-custom-keybindings-in-vim/
 
