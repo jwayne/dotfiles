@@ -41,8 +41,17 @@ set backspace=2
 " hybrid line numbers
 set relativenumber 
 
-" somehow search highlighting got turned off
+" somehow a lot of stuff gets turned off when you turn on hybrid line
+" numbers...
+" search highlighting
 set hlsearch
+" jumping to last position when reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g'\"" | endif
+endif
+" line/column numbers
+set ruler
 
 " More key bindings
 "http://www.techrepublic.com/blog/linux-and-open-source/create-custom-keybindings-in-vim/
