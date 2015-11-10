@@ -33,7 +33,11 @@ nmap <F3> mz:execute TabToggle()<CR>'z
 filetype plugin indent on
 
 " use system clipboard, hopefully
-set clipboard=unnamedplus
+if has('mac')
+    set clipboard=unnamed
+else
+    set clipboard=unnamedplus
+endif
 
 " make backspace work
 set backspace=2

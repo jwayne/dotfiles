@@ -106,13 +106,23 @@ if [ "$arg_programs" = true ]; then
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
         echo -e "done\n"
 
+        echo "installing new vim"
+        brew install vim
+        echo -e "done\n"
+
+        echo "installing tmux"
+        brew install tmux
+        echo -e "done\n"
+
         echo "installing Spacemacs"
         brew tap railwaycat/emacsmacport
         brew install emacs-mac
         echo -e "done\n"
 
-        echo "You should install these apps manually:"
-        echo "ShiftIt"
+        echo "Here\'s some other stuff you might need:"
+        echo "IDEs: XCode, Android Studio, Eclipse"
+        echo "SDKs: Java + Java SDK"
+        echo "Other: ShiftIt"
         echo "Press enter to continue..."
         read -e
     elif [ $is_linux = true ]; then
