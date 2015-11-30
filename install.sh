@@ -46,6 +46,10 @@ print_help() {
     exit 0
 }
 
+if [[ "$#" -eq 0 ]]; then
+    print_help
+fi
+
 while test $# -gt 0; do
     case "$1" in
         -h|--help)
