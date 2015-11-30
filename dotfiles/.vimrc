@@ -33,6 +33,7 @@ nmap <F3> mz:execute TabToggle()<CR>'z
 filetype plugin indent on
 
 " use system clipboard, hopefully
+" http://vi.stackexchange.com/questions/84/how-can-i-copy-text-to-the-system-clipboard-from-vim
 if has('mac')
     set clipboard=unnamed
 else
@@ -57,9 +58,6 @@ endif
 " line/column numbers
 set ruler
 
-" More key bindings
-"http://www.techrepublic.com/blog/linux-and-open-source/create-custom-keybindings-in-vim/
-
 " tmux will send xterm-style keys when its xterm-keys option is on
 if &term =~ '^screen'
     execute "set <xUp>=\e[1;*A"
@@ -67,3 +65,6 @@ if &term =~ '^screen'
     execute "set <xRight>=\e[1;*C"
     execute "set <xLeft>=\e[1;*D"
 endif
+
+" More key bindings
+" http://www.techrepublic.com/blog/linux-and-open-source/create-custom-keybindings-in-vim/
