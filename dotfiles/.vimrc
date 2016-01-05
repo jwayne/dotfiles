@@ -11,8 +11,8 @@ set expandtab
 " special indentation options
 au FileType html setl sw=2 ts=2 sts=2
 au FileType htmldjango setl sw=2 ts=2 sts=2
-au FileType css setl sw=4 ts=4 sts=4 noexpandtab
-au FileType javascript setl sw=4 ts=4 sts=4 noexpandtab
+au FileType css setl sw=2 ts=2 sts=2
+au FileType javascript setl sw=2 ts=2 sts=2
 au BufNewFile,BufRead *.json set filetype=json
 au FileType json setl sw=2 ts=2 sts=2
 
