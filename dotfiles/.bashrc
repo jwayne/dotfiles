@@ -1,11 +1,7 @@
 PATH=.:$PATH
 
-alias ls="ls -G"
-alias ll="ls -lh"
-alias la="ls -lAh"
-alias l="ls -lh"
-
-alias greppy="find . -name '*.py' | xargs grep"
+# Source aliases
+. ~/.shrc
 
 export HISTFILESIZE=50000
 export HISTSIZE=50000
