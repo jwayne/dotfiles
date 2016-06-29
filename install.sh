@@ -137,6 +137,10 @@ if [ "$arg_programs" = true ]; then
         echo "installing Spacemacs"
         git clone --recursive https://github.com/syl20bnr/spacemacs ~/.emacs.d
         echo -e "done\n"
+
+        sudo apt-get install pip
+
+        sudo pip install virtualenvwrapper
     fi
 fi       
 
@@ -158,10 +162,11 @@ if [ ! -z "$arg_shell" ]; then
             else
                 echo "oh-my-zsh already installed"
                 echo
-                if [ "$SHELL" != "/bin/zsh" ]; then
-                    echo "chsh -s /bin/zsh"
-                    chsh -s /bin/zsh
-                    set SHELL=/bin/zsh
+                ZSH_PATH=`which zsh`
+                if [ "$SHELL" != "$ZSH_PATH" ]; then
+                    echo "chsh -s $ZSH_PATH"
+                    chsh -s $ZSH_PATH
+                    export SHELL=$ZSH_PATH
                 else
                     echo "default shell is already zsh, nothing to do"
                     echo
@@ -177,10 +182,11 @@ if [ ! -z "$arg_shell" ]; then
     if [ "$arg_shell" == "bash" ]; then
         echo "using bash"
         echo
-        if [ "$SHELL" != "/bin/bash" ]; then
-            echo "chsh -s /bin/bash"
-            chsh -s /bin/bash
-            set SHELL=/bin/bash
+        BASH_PATH=`which bash`
+        if [ "$SHELL" != "$BASH_PATH" ]; then
+            echo "chsh -s $BASH_PATH"
+            chsh -s $BASH_PATH
+            export SHELL=$BASH_PATH
         else
             echo "default shell is already bash, nothing to do"
             echo
