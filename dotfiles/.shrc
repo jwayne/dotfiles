@@ -1,0 +1,11 @@
+alias ls="ls -G"
+alias ll="ls -lh"
+alias la="ls -lAh"
+alias l="ls -lh"
+
+alias greppy="find . -name '*.py' | xargs grep"
+
+alias cd-jopa="cd /Users/joshchen/proj/jopwell/jopwell-api"
+alias cd-jopf="cd /Users/joshchen/proj/jopwell/Jopwell-Frontend"
+
+export WORKON_HOME=~/.virtualenvwrapper; mkdir -p $WORKON_HOME; source /usr/local/bin/virtualenvwrapper.sh;
