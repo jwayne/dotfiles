@@ -12,6 +12,7 @@ set expandtab
 au FileType html setl sw=2 ts=2 sts=2
 au FileType htmldjango setl sw=2 ts=2 sts=2
 au FileType css setl sw=2 ts=2 sts=2
+au FileType scss setl sw=2 ts=2 sts=2
 au FileType javascript setl sw=2 ts=2 sts=2
 au BufNewFile,BufRead *.json set filetype=json
 au FileType json setl sw=2 ts=2 sts=2
