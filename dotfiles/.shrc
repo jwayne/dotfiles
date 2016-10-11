@@ -1,9 +1,8 @@
-alias ls="ls -G --color"
-alias ll="ls -lh --color"
-alias la="ls -lAh --color"
-alias l="ls -lh --color"
+alias ll="ls -lh"
+alias la="ls -lAh"
+alias l="ls -lh"
 
-alias greppy="find . -name '*.py' | xargs grep"
+alias greppy="find . -name '*.py' | xargs grep --color"
 xgrep() {
     find . -name "*.$1" | xargs grep ${@:2}
 }
@@ -24,6 +23,6 @@ fi
 # Work specific stuff
 alias cd-jopa="cd /Users/joshchen/proj/jopwell/jopwell-api"
 alias cd-jopf="cd /Users/joshchen/proj/jopwell/Jopwell-Frontend"
-alias cd-mer="cd /Users/joshchen/proj/merantix"
+alias cd-merc="cd /Users/joshchen/proj/merantix/core"
 
 source $HOME/proj/merantix/core/developer_env/setup.sh
