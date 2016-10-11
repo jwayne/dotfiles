@@ -4,8 +4,26 @@ alias la="ls -lAh"
 alias l="ls -lh"
 
 alias greppy="find . -name '*.py' | xargs grep"
-
-alias cd-jopa="cd /Users/joshchen/proj/jopwell/jopwell-api"
-alias cd-jopf="cd /Users/joshchen/proj/jopwell/Jopwell-Frontend"
+xgrep() {
+    find . -name "*.$1" | xargs grep ${@:2}
+}
+alias grp=xgrep
 
 export WORKON_HOME=~/.virtualenvwrapper; mkdir -p $WORKON_HOME; source /usr/local/bin/virtualenvwrapper.sh;
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f /Users/joshchen/.local/share/google-cloud-sdk/path.zsh.inc ]; then
+  source '/Users/joshchen/.local/share/google-cloud-sdk/path.zsh.inc'
+fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f /Users/joshchen/.local/share/google-cloud-sdk/completion.zsh.inc ]; then
+  source '/Users/joshchen/.local/share/google-cloud-sdk/completion.zsh.inc'
+fi
+
+# Work specific stuff
+alias cd-jopa="cd /Users/joshchen/proj/jopwell/jopwell-api"
+alias cd-jopf="cd /Users/joshchen/proj/jopwell/Jopwell-Frontend"
+alias cd-mer="cd /Users/joshchen/proj/merantix"
+
+source $HOME/merantix/google_cloud_demo/developer_env/setup.sh

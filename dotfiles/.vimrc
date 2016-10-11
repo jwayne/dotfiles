@@ -13,9 +13,9 @@ au FileType html setl sw=2 ts=2 sts=2
 au FileType htmldjango setl sw=2 ts=2 sts=2
 au FileType css setl sw=2 ts=2 sts=2
 au FileType scss setl sw=2 ts=2 sts=2
-au FileType javascript setl sw=2 ts=2 sts=2
+au FileType javascript setl sw=4 ts=4 sts=4
 au BufNewFile,BufRead *.json set filetype=json
-au FileType json setl sw=2 ts=2 sts=2
+au FileType json setl sw=4 ts=4 sts=4
 
 " turn off indentation for pasting code via keyboard shortcut
 set pastetoggle=<F2>
@@ -45,7 +45,7 @@ endif
 set backspace=2
 
 " hybrid line numbers
-set relativenumber 
+set number 
 
 " somehow a lot of stuff gets turned off when you turn on hybrid line
 " numbers...
