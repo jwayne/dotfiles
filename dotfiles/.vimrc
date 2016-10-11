@@ -44,11 +44,11 @@ endif
 " make backspace work
 set backspace=2
 
-" hybrid line numbers
-set number 
-
+" no hybrid line numbers
 " somehow a lot of stuff gets turned off when you turn on hybrid line
 " numbers...
+set number 
+
 " search highlighting
 set hlsearch
 " jumping to last position when reopening a file

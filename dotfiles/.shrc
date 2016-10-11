@@ -26,4 +26,4 @@ alias cd-jopa="cd /Users/joshchen/proj/jopwell/jopwell-api"
 alias cd-jopf="cd /Users/joshchen/proj/jopwell/Jopwell-Frontend"
 alias cd-mer="cd /Users/joshchen/proj/merantix"
 
-source $HOME/merantix/google_cloud_demo/developer_env/setup.sh
+source $HOME/proj/merantix/core/developer_env/setup.sh
