@@ -8,21 +8,20 @@ xgrep() {
 }
 alias grp=xgrep
 
-export WORKON_HOME=~/.virtualenvwrapper; mkdir -p $WORKON_HOME; source /usr/local/bin/virtualenvwrapper.sh;
+alias pv="open -a Preview"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f /Users/joshchen/.local/share/google-cloud-sdk/path.zsh.inc ]; then
   source '/Users/joshchen/.local/share/google-cloud-sdk/path.zsh.inc'
 fi
-
 # The next line enables shell command completion for gcloud.
 if [ -f /Users/joshchen/.local/share/google-cloud-sdk/completion.zsh.inc ]; then
   source '/Users/joshchen/.local/share/google-cloud-sdk/completion.zsh.inc'
 fi
 
-# Work specific stuff
-alias cd-jopa="cd /Users/joshchen/proj/jopwell/jopwell-api"
-alias cd-jopf="cd /Users/joshchen/proj/jopwell/Jopwell-Frontend"
-alias cd-merc="cd /Users/joshchen/proj/merantix/core"
+# added by Miniconda2 4.1.11 installer
+export PATH="/Users/joshchen/.local/share/miniconda2/bin:$PATH"
 
+# Work specific stuff
+alias cd-merc="cd /Users/joshchen/proj/merantix/core"
 source $HOME/proj/merantix/core/developer_env/setup.sh
