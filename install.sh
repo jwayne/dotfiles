@@ -118,11 +118,6 @@ if [ "$arg_programs" = true ]; then
         brew install tmux
         echo -e "done\n"
 
-        echo "installing Spacemacs"
-        brew tap railwaycat/emacsmacport
-        brew install emacs-mac
-        echo -e "done\n"
-
         echo "Here\'s some other stuff you might need:"
         echo "IDEs: XCode, Android Studio, Eclipse"
         echo "SDKs: Java + Java SDK"
@@ -134,13 +129,10 @@ if [ "$arg_programs" = true ]; then
         echo "Linux program installs"
         echo "--------------------------------------------------------------------------------"
 
-        echo "installing Spacemacs"
-        git clone --recursive https://github.com/syl20bnr/spacemacs ~/.emacs.d
-        echo -e "done\n"
+        sudo apt-get install vim
+        sudo apt-get install tmux
+        sudo apt-get install zsh
 
-        sudo apt-get install pip
-
-        sudo pip install virtualenvwrapper
     fi
 fi       
 
