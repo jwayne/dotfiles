@@ -40,6 +40,8 @@ if has('mac')
 else
     set clipboard=unnamedplus
 endif
+" http://superuser.com/a/389890/300511
+autocmd VimLeave * call system("xsel -ib", getreg('+'))
 
 " make backspace work
 set backspace=2

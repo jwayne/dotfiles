@@ -23,5 +23,5 @@ fi
 export PATH="/Users/joshchen/.local/share/miniconda2/bin:$PATH"
 
 # Work specific stuff
-alias cd-merc="cd /Users/joshchen/proj/merantix/core"
+alias cd-merc="cd $HOME/proj/merantix/core"
 source $HOME/proj/merantix/core/developer_env/setup.sh
