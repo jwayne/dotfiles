@@ -232,7 +232,7 @@ if [ "$arg_git" = true ]; then
     echo "setting up git"
     echo "--------------------------------------------------------------------------------"
     git config --global user.name "Josh Chen"
-    git config --global user.email "jwcstar@gmail.com"
+    git config --global user.email "jwayne@users.noreply.github.com"
     git config --global push.default simple
     echo -e "done\n"
 fi
