@@ -133,8 +133,9 @@ if [ "$arg_programs" = true ]; then
         sudo apt-get install tmux
         sudo apt-get install zsh
         sudo apt-get install xclip
-
     fi
+
+    sudo pip install jupyter matplotlib ipdb numpy
 fi       
 
 #-----
