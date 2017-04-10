@@ -111,17 +111,21 @@ if [ "$arg_programs" = true ]; then
         echo -e "done\n"
 
         echo "installing new vim"
-        brew install vim
+        # https://coderwall.com/p/j9wnfw/vim-tmux-system-clipboard
+        brew install macvim --with-override-system-vim && brew linkapps
+        brew install reattach-to-user-namespace
         echo -e "done\n"
 
+        # https://robots.thoughtbot.com/tmux-copy-paste-on-os-x-a-better-future
         echo "installing tmux"
         brew install tmux
+        git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
         echo -e "done\n"
 
         echo "Here\'s some other stuff you might need:"
-        echo "IDEs: XCode, Android Studio, Eclipse"
+        echo "IDEs: XCode, Android Studio, Eclipse, PyCharm"
         echo "SDKs: Java + Java SDK"
-        echo "Other: ShiftIt"
+        echo "Other: ShiftIt, Flux"
         echo "Press enter to continue..."
         read -e
     elif [ $is_linux = true ]; then
@@ -131,6 +135,7 @@ if [ "$arg_programs" = true ]; then
 
         sudo apt-get install vim
         sudo apt-get install tmux
+        git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
         sudo apt-get install zsh
         sudo apt-get install xclip
     fi

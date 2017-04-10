@@ -33,11 +33,12 @@ nmap <F3> mz:execute TabToggle()<CR>'z
 " plugins
 filetype plugin indent on
 
-" use system clipboard, hopefully
-" http://vi.stackexchange.com/questions/84/how-can-i-copy-text-to-the-system-clipboard-from-vim
+" use system clipboard when yanking and pasting in vim
 if has('mac')
+    " https://coderwall.com/p/j9wnfw/vim-tmux-system-clipboard
     set clipboard=unnamed
 else
+    " http://vi.stackexchange.com/a/89
     set clipboard=unnamedplus
 endif
 " http://superuser.com/a/389890/300511
