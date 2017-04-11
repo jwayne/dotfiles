@@ -122,6 +122,11 @@ if [ "$arg_programs" = true ]; then
         git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
         echo -e "done\n"
 
+        echo "installing user-modifiable Python"
+        # http://stackoverflow.com/a/20691578/1232944
+        brew install python
+        brew unlink python && brew link --overwrite python
+
         echo "Here\'s some other stuff you might need:"
         echo "IDEs: XCode, Android Studio, Eclipse, PyCharm"
         echo "SDKs: Java + Java SDK"
