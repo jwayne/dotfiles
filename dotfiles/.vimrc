@@ -1,6 +1,43 @@
 set nocompatible
+
+"
+" Begin Vundle plugin stuff
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" To install plugins:
+" Option 1: Launch vim and run :PluginInstall
+" Option 2: To install from command line: vim +PluginInstall +qall
+"
+" see :h vundle for more details or wiki for FAQ
+" https://github.com/VundleVim/Vundle.vim
+"
+if v:version >= 700
+    try
+        filetype off
+
+        " set the runtime path to include Vundle and initialize
+        set rtp+=~/.vim/bundle/Vundle.vim
+        call vundle#begin()
+
+        Plugin 'Vimjas/vim-python-pep8-indent'
+
+        " All of your Plugins must be added before the following line
+        call vundle#end()
+
+        filetype plugin indent on
+    catch
+    endtry
+endif
+"
+" End Vundle plugin stuff
+"
+
 syntax on
-filetype on
 
 " indentation options
 set smartindent
@@ -75,3 +112,9 @@ autocmd filetype crontab setlocal nobackup nowritebackup
 
 " More key bindings
 " http://www.techrepublic.com/blog/linux-and-open-source/create-custom-keybindings-in-vim/
+
+" Get rid of ex mode, which I accidentally enter way too often
+map q: <nop>
+map q/ <nop>
+map q? <nop>
+nnoremap Q <nop>

@@ -146,6 +146,10 @@ if [ "$arg_programs" = true ]; then
     fi
 
     sudo pip install jupyter matplotlib ipdb numpy
+
+    # https://github.com/VundleVim/Vundle.vim
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    vim +PluginInstall +qall
 fi       
 
 #-----
