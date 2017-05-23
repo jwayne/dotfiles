@@ -150,6 +150,8 @@ if [ "$arg_programs" = true ]; then
     # https://github.com/VundleVim/Vundle.vim
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
     vim +PluginInstall +qall
+
+    git config --global push.default matching
 fi       
 
 #-----
