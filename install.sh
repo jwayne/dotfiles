@@ -150,9 +150,6 @@ if [ "$arg_programs" = true ]; then
     # https://github.com/VundleVim/Vundle.vim
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
     vim +PluginInstall +qall
-
-    git config --global push.default simple
-    git config credential.helper cache
 fi       
 
 #-----
@@ -250,6 +247,7 @@ if [ "$arg_git" = true ]; then
     echo "--------------------------------------------------------------------------------"
     git config --global user.name "Josh Chen"
     git config --global user.email "jwayne@users.noreply.github.com"
-    git config --global push.default simple
+    git config credential.helper cache
+    git config --global push.default matching
     echo -e "done\n"
 fi
