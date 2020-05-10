@@ -1,6 +1,8 @@
 PATH=.:$PATH
 
-# Source aliases
+# Source my shared config
+# TODO 20200508: It seems that some important stuff is in .zshrc and not .shrc
+# like setting PATH?
 . ~/.shrc
 
 export HISTFILESIZE=50000

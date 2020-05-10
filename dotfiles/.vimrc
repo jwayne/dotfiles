@@ -25,6 +25,8 @@ if v:version >= 700
         call vundle#begin()
 
         Plugin 'Vimjas/vim-python-pep8-indent'
+        Plugin 'jiangmiao/auto-pairs'
+        Plugin 'leafgarland/typescript-vim'
 
         " All of your Plugins must be added before the following line
         call vundle#end()
@@ -50,9 +52,9 @@ au FileType html setl sw=2 ts=2 sts=2
 au FileType htmldjango setl sw=2 ts=2 sts=2
 au FileType css setl sw=2 ts=2 sts=2
 au FileType scss setl sw=2 ts=2 sts=2
-au FileType javascript setl sw=4 ts=4 sts=4
+au FileType javascript setl sw=2 ts=2 sts=2
 au BufNewFile,BufRead *.json set filetype=json
-au FileType json setl sw=4 ts=4 sts=4
+au FileType json setl sw=2 ts=2 sts=2
 
 " turn off indentation for pasting code via keyboard shortcut
 set pastetoggle=<F2>
@@ -112,6 +114,56 @@ autocmd filetype crontab setlocal nobackup nowritebackup
 
 " More key bindings
 " http://www.techrepublic.com/blog/linux-and-open-source/create-custom-keybindings-in-vim/
+
+" Comment bindings
+" https://stackoverflow.com/a/24046914
+let s:comment_map = { 
+    \   "c": '\/\/',
+    \   "cpp": '\/\/',
+    \   "go": '\/\/',
+    \   "java": '\/\/',
+    \   "javascript": '\/\/',
+    \   "lua": '--',
+    \   "scala": '\/\/',
+    \   "php": '\/\/',
+    \   "python": '#',
+    \   "ruby": '#',
+    \   "rust": '\/\/',
+    \   "sh": '#',
+    \   "desktop": '#',
+    \   "fstab": '#',
+    \   "conf": '#',
+    \   "profile": '#',
+    \   "bashrc": '#',
+    \   "bash_profile": '#',
+    \   "mail": '>',
+    \   "eml": '>',
+    \   "bat": 'REM',
+    \   "ahk": ';',
+    \   "vim": '"',
+    \   "tex": '%',
+    \ }
+function! ToggleComment()
+    if has_key(s:comment_map, &filetype)
+        let comment_leader = s:comment_map[&filetype]
+        if getline('.') =~ "^\\s*" . comment_leader . " " 
+            " Uncomment the line
+            execute "silent s/^\\(\\s*\\)" . comment_leader . " /\\1/"
+        else 
+            if getline('.') =~ "^\\s*" . comment_leader
+                " Uncomment the line
+                execute "silent s/^\\(\\s*\\)" . comment_leader . "/\\1/"
+            else
+                " Comment the line
+                execute "silent s/^\\(\\s*\\)/\\1" . comment_leader . " /"
+            end
+        end
+    else
+        echo "No comment leader found for filetype"
+    end
+endfunction
+nnoremap <leader><Space> :call ToggleComment()<cr>
+vnoremap <leader><Space> :call ToggleComment()<cr>
 
 " Get rid of ex mode, which I accidentally enter way too often
 map q: <nop>
