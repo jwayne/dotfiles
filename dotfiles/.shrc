@@ -12,10 +12,21 @@ xgrep() {
 }
 alias grp=xgrep
 
+alias gco="git checkout"
+alias gcm="git commit -am"
+alias gro="git rebase --onto"
+alias gri="git rebase -i"
+alias gcont="git rebase --continue"
+alias gam="git commit --amend"
+
 alias pv="open -a Preview"
 
 # https://stackoverflow.com/a/26482258/1232944
 alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
+
+alias tf="terraform"
+alias k="kubectl"
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
 # -----
 # Misc installs. Many of these might only work for my Mac, but we'll deal with
@@ -30,11 +41,23 @@ if [ -f '/Users/joshchen/lib/google-cloud-sdk/completion.zsh.inc' ]; then source
 
 # Set up node version manager in a non-slow way
 # https://github.com/nvm-sh/nvm/issues/1277#issuecomment-536218082
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"
-export PATH="$NVM_DIR/versions/node/v$(<$NVM_DIR/alias/default)/bin:$PATH"
-alias nvm="unalias nvm; [ -s $NVM_DIR/nvm.sh ] && . $NVM_DIR/nvm.sh; nvm $@"
+#export NVM_DIR="$HOME/.nvm"
+#[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"
+#export PATH="$NVM_DIR/versions/node/v$(<$NVM_DIR/alias/default)/bin:$PATH"
+#alias nvm="unalias nvm; [ -s $NVM_DIR/nvm.sh ] && . $NVM_DIR/nvm.sh; nvm $@"
 
 # Set up .NET for Unity
 export PATH=$PATH:export PATH=$PATH:/Library/Frameworks/Mono.framework/Versions/Current/bin/
 
+# -----
+# Opal
+# -----
+
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:~/go/bin
+
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+# To run: run-migrations-test down 1
+alias run-migrations-test="source configs/set_env.sh testing-local && go run web/backend/scripts/migrations/migrations_helper.go"

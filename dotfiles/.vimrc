@@ -27,6 +27,7 @@ if v:version >= 700
         Plugin 'Vimjas/vim-python-pep8-indent'
         Plugin 'jiangmiao/auto-pairs'
         Plugin 'leafgarland/typescript-vim'
+        Plugin 'hashivim/vim-terraform'
 
         " All of your Plugins must be added before the following line
         call vundle#end()
