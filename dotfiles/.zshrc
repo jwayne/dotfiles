@@ -83,31 +83,16 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# https://github.com/ricbra/zsh-config/blob/master/zshrc
+# Remove superfluous blanks from each command line being added to the history
+# list
+setopt histreduceblanks
+# Remove command lines from the history list when the first character on the
+# line is a space, or when one of the expanded aliases contains a leading space
+setopt histignorespace
+# Do not enter command lines into the history list if they are duplicates of the
+# previous event.
+setopt histignorealldups
+
 # Source my shared config
 . ~/.shrc
-
-# Set up rbenv (ruby package manager)
-#export PATH="/Users/joshchen/.rbenv/shims:${PATH}"
-#export RBENV_SHELL=zsh
-#source '/usr/local/Cellar/rbenv/1.1.2/libexec/../completions/rbenv.zsh'
-#command rbenv rehash 2>/dev/null
-#rbenv() {
-#  local command
-#  command="${1:-}"
-#  if [ "$#" -gt 0 ]; then
-#    shift
-#  fi
-#
-#  case "$command" in
-#  rehash|shell)
-#    eval "$(rbenv "sh-$command" "$@")";;
-#  *)
-#    command rbenv "$command" "$@";;
-#  esac
-#}
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/joshchen/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/joshchen/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/joshchen/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/joshchen/google-cloud-sdk/completion.zsh.inc'; fi

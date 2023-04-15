@@ -29,6 +29,8 @@ if v:version >= 700
         Plugin 'leafgarland/typescript-vim'
         Plugin 'hashivim/vim-terraform'
 
+        Plugin 'tomlion/vim-solidity'
+
         " All of your Plugins must be added before the following line
         call vundle#end()
 
@@ -171,3 +173,8 @@ map q: <nop>
 map q/ <nop>
 map q? <nop>
 nnoremap Q <nop>
+
+" Jump to beginning/eol while in insert mode
+" https://coderwall.com/p/fd_bea/vim-jump-to-end-of-line-while-in-insert-mode
+inoremap <C-e> <C-o>$
+inoremap <C-a> <C-o>0

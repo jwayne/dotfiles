@@ -130,9 +130,10 @@ if [ "$arg_programs" = true ]; then
         echo "Here\'s some other stuff you might need:"
         echo "IDEs: XCode, Android Studio, Eclipse, PyCharm"
         echo "SDKs: Java + Java SDK"
-        echo "Other: ShiftIt, Flux"
+        echo "Other: Hammerspoon, Flux"
         echo "Press enter to continue..."
         read -e
+
     elif [ $is_linux = true ]; then
         echo "================================================================================"
         echo "Linux program installs"
