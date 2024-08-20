@@ -13,14 +13,16 @@ xgrep() {
 alias grp=xgrep
 
 alias gco="git checkout"
-alias gcm="git commit -am"
 alias gro="git rebase --onto"
 alias gri="git rebase -i"
 alias gcont="git rebase --continue"
+alias gcam="git commit -am"
 alias gam="git commit --amend"
+alias gpush="git push -u origin HEAD"
 
 alias pv="open -a Preview"
 
+alias jpy="jupyter lab"
 # https://stackoverflow.com/a/26482258/1232944
 alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
 
@@ -28,16 +30,23 @@ alias tf="terraform"
 alias k="kubectl"
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
+alias gcloud-switch="gcloud config configurations activate"
+
 # -----
 # Misc installs. Many of these might only work for my Mac, but we'll deal with
 # that if the issue comes up.
 # -----
 
-# Set up pyenv for Python
-# https://opensource.com/article/19/5/python-3-default-mac
+# Use python from pyenv
+# https://medium.com/@ThisIsUpen/python-setup-on-macos-59b2329bd920
+export PYENV_ROOT="$(pyenv root)"
+export PATH="$PYENV_ROOT/shims:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+
+# Add dir containing poetry
+#export PATH="/Users/joshchen/.local/bin:$PATH"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/joshchen/lib/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/joshchen/lib/google-cloud-sdk/path.zsh.inc'; fi
@@ -45,25 +54,13 @@ if [ -f '/Users/joshchen/lib/google-cloud-sdk/path.zsh.inc' ]; then source '/Use
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/joshchen/lib/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/joshchen/lib/google-cloud-sdk/completion.zsh.inc'; fi
 
-# Set up node version manager in a non-slow way
-# https://github.com/nvm-sh/nvm/issues/1277#issuecomment-536218082
-#export NVM_DIR="$HOME/.nvm"
-#[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"
-#export PATH="$NVM_DIR/versions/node/v$(<$NVM_DIR/alias/default)/bin:$PATH"
-#alias nvm="unalias nvm; [ -s $NVM_DIR/nvm.sh ] && . $NVM_DIR/nvm.sh; nvm $@"
-
 # Set up .NET for Unity
 export PATH=$PATH:export PATH=$PATH:/Library/Frameworks/Mono.framework/Versions/Current/bin/
 
-# -----
-# Opal
-# -----
-
-export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:~/go/bin
-
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
-# To run: run-migrations-test down 1
-alias run-migrations-test="source configs/set_env.sh testing-local && go run web/backend/scripts/migrations/migrations_helper.go"
+# pnpm
+export PNPM_HOME="/Users/joshchen/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
